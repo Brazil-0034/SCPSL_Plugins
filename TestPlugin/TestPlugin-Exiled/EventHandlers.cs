@@ -38,7 +38,7 @@ namespace TestPlugin
             foreach (ReferenceHub hub in Player.GetHubs())
             {
                 Log.Info(Player.GetPosition(hub).ToString());
-                GameObject g = GameObject.Instantiate(PlayerManager.players[0]);
+                GameObject g = GameObject.Instantiate(PlayerManager.players[0], hub.transform.position, Quaternion.identity);
                 NetworkServer.Spawn(g);
             }
         }
