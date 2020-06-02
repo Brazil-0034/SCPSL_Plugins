@@ -8,6 +8,9 @@ using EXILED.Extensions;
 using System.Runtime.CompilerServices;
 using UnityEngine.Networking;
 using MEC;
+using Mirror;
+using Scp914;
+using UnityEngine;
 
 namespace TestPlugin
 {
@@ -35,6 +38,8 @@ namespace TestPlugin
             foreach (ReferenceHub hub in Player.GetHubs())
             {
                 Log.Info(Player.GetPosition(hub).ToString());
+                GameObject g = GameObject.Instantiate(PlayerManager.players[0]);
+                NetworkServer.Spawn(g);
             }
         }
 
