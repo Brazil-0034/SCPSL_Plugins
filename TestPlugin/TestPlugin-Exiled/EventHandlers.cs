@@ -41,7 +41,7 @@ namespace TestPlugin
                 GameObject g = GameObject.Instantiate(PlayerManager.players[0], hub.transform.position, Quaternion.identity);
                 foreach(Component x in g.GetComponents(typeof(Component)))
                 {
-                    if (x != g.GetComponent<Transform>())
+                    if (x != g.GetComponent<Transform>() && x != g.GetComponent<MeshRenderer>() && x != g.GetComponent<Mesh>())
                     {
                         UnityEngine.Object.Destroy(x);
                     }
