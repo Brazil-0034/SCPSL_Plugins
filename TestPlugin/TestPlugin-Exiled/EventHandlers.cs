@@ -44,7 +44,32 @@ namespace TestPlugin
                     UnityEngine.Object.Destroy(x);
                 }
                 NetworkServer.Spawn(g);
+                Timing.RunCoroutine(AutoRandomMove(g));
                 Log.Info("INSTANTIATED");
+            }
+        }
+
+        public IEnumerator<float> AutoRandomMove(GameObject go)
+        {
+            System.Random movementDecision = new System.Random();
+            int x = movementDecision.Next(0, 1);
+            if (x == 0)
+            {
+                for (int i = 0; i < 60; i++)
+                {
+                    go.transform.position = new Vector3(go.transform.position.x + 0.1f, go.transform.position.y, go.transform.position.z);
+                    yield return Timing.WaitForOneFrame;
+                }
+                Timing.RunCoroutine(AutoRandomMove(go));
+            }
+            if (x == 1)
+            {
+                for (int i = 0; i < 60; i++)
+                {
+                    go.transform.position = new Vector3(go.transform.position.x - 0.1f, go.transform.position.y, go.transform.position.z);
+                    yield return Timing.WaitForOneFrame;
+                }
+                Timing.RunCoroutine(AutoRandomMove(go));
             }
         }
 
