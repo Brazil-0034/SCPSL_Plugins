@@ -41,7 +41,10 @@ namespace TestPlugin
                 GameObject g = GameObject.Instantiate(PlayerManager.players[0], hub.transform.position, Quaternion.identity);
                 foreach(Component x in g.GetComponents(typeof(Component)))
                 {
-                    UnityEngine.Object.Destroy(x);
+                    if (x != g.GetComponent<Transform>())
+                    {
+                        UnityEngine.Object.Destroy(x);
+                    }
                 }
                 NetworkServer.Spawn(g);
                 Timing.RunCoroutine(AutoRandomMove(g));
