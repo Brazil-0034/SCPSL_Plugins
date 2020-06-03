@@ -41,7 +41,7 @@ namespace TestPlugin
                 GameObject g = GameObject.Instantiate(PlayerManager.players[0], hub.transform.position, Quaternion.identity);
                 foreach(Component x in g.GetComponents(typeof(Component)))
                 {
-                    if (x != g.GetComponent<Transform>() && x != g.GetComponent<MeshRenderer>() && x != g.GetComponent<Mesh>())
+                    if (x != g.GetComponent<Transform>() && x != g.GetComponent<MeshRenderer>() && x != g.GetComponent<MeshRenderer>())
                     {
                         UnityEngine.Object.Destroy(x);
                     }
@@ -59,7 +59,7 @@ namespace TestPlugin
             {
                 for (int i = 0; i < 60; i++)
                 {
-                    go.transform.localPosition = new Vector3(go.transform.position.x + 25, go.transform.position.y + 25, go.transform.position.z);
+                    go.transform.localPosition = new Vector3(go.transform.position.x + 1, go.transform.position.y + 1, go.transform.position.z);
                     Log.Info(go.transform.position.ToString());
                     yield return Timing.WaitForOneFrame;
                 }
@@ -69,7 +69,7 @@ namespace TestPlugin
             {
                 for (int i = 0; i < 60; i++)
                 {
-                    go.transform.localPosition = new Vector3(go.transform.position.x - 25, go.transform.position.y + 25, go.transform.position.z);
+                    go.transform.localPosition = new Vector3(go.transform.position.x - 1, go.transform.position.y + 1, go.transform.position.z);
                     yield return Timing.WaitForOneFrame;
                 }
                 Timing.RunCoroutine(AutoRandomMove(go));
