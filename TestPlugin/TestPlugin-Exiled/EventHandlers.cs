@@ -51,13 +51,12 @@ namespace TestPlugin
         public IEnumerator<float> AutoRandomMove(GameObject go)
         {
             Log.Info("COROUTINE STARTED");
-            System.Random movementDecision = new System.Random();
-            int x = movementDecision.Next(0, 2);
+            int x = UnityEngine.Random.Range(0, 2);
             if (x == 0)
             {
                 for (int i = 0; i < 60; i++)
                 {
-                    go.transform.position = new Vector3(go.transform.position.x + 2, go.transform.position.y, go.transform.position.z);
+                    go.transform.position = new Vector3(go.transform.position.x + 25, go.transform.position.y + 25, go.transform.position.z);
                     yield return Timing.WaitForOneFrame;
                 }
                 Timing.RunCoroutine(AutoRandomMove(go));
@@ -66,7 +65,7 @@ namespace TestPlugin
             {
                 for (int i = 0; i < 60; i++)
                 {
-                    go.transform.position = new Vector3(go.transform.position.x - 2, go.transform.position.y, go.transform.position.z);
+                    go.transform.position = new Vector3(go.transform.position.x - 25, go.transform.position.y + 25, go.transform.position.z);
                     yield return Timing.WaitForOneFrame;
                 }
                 Timing.RunCoroutine(AutoRandomMove(go));
