@@ -45,12 +45,12 @@ namespace TestPlugin
                 }
                 NetworkServer.Spawn(g);
                 Timing.RunCoroutine(AutoRandomMove(g));
-                Log.Info("INSTANTIATED");
             }
         }
 
         public IEnumerator<float> AutoRandomMove(GameObject go)
         {
+            Log.Info("COROUTINE STARTED");
             System.Random movementDecision = new System.Random();
             int x = movementDecision.Next(0, 1);
             if (x == 0)
