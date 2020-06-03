@@ -57,7 +57,7 @@ namespace TestPlugin
             {
                 for (int i = 0; i < 60; i++)
                 {
-                    go.transform.position = new Vector3(go.transform.position.x + 0.1f, go.transform.position.y, go.transform.position.z);
+                    go.transform.position = new Vector3(go.transform.position.x + 2, go.transform.position.y, go.transform.position.z);
                     yield return Timing.WaitForOneFrame;
                 }
                 Timing.RunCoroutine(AutoRandomMove(go));
@@ -66,7 +66,7 @@ namespace TestPlugin
             {
                 for (int i = 0; i < 60; i++)
                 {
-                    go.transform.position = new Vector3(go.transform.position.x - 0.1f, go.transform.position.y, go.transform.position.z);
+                    go.transform.position = new Vector3(go.transform.position.x - 2, go.transform.position.y, go.transform.position.z);
                     yield return Timing.WaitForOneFrame;
                 }
                 Timing.RunCoroutine(AutoRandomMove(go));
