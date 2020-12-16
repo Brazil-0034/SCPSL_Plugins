@@ -12,7 +12,7 @@ using Mirror;
 using Scp914;
 using UnityEngine;
 
-namespace TestPlugin
+namespace Infected
 {
     public class EventHandlers
     {
